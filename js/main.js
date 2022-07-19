@@ -59,24 +59,46 @@ function newEntry(entry) {
   var divOne = document.createElement('div');
   divOne.setAttribute('class', 'row marginbottom-50');
   liElement.appendChild(divOne);
+
   var divTwo = document.createElement('div');
   divTwo.setAttribute('class', 'column-half');
   divOne.appendChild(divTwo);
+
   var imgElement = document.createElement('img');
   imgElement.setAttribute('src', entry.photourl);
   imgElement.setAttribute('class', 'image-size');
   divTwo.appendChild(imgElement);
+
   var divThree = document.createElement('div');
   divThree.setAttribute('class', 'column-half');
   divOne.appendChild(divThree);
+
+  var divFour = document.createElement('div');
+  divFour.setAttribute('class', 'row align-center');
+  divThree.appendChild(divFour);
+
+  var divFive = document.createElement('div');
+  divFive.setAttribute('class', 'flex-50');
+  divFour.appendChild(divFive);
+
   var headerTwo = document.createElement('h2');
   headerTwo.setAttribute('class', 'journal-title');
   headerTwo.textContent = entry.title;
-  divThree.appendChild(headerTwo);
+  divFive.appendChild(headerTwo);
+
+  var divSix = document.createElement('div');
+  divSix.setAttribute('class', 'flex-50 align-right');
+  divFour.appendChild(divSix);
+
+  var iElement = document.createElement('i');
+  iElement.setAttribute('class', 'fa-solid fa-pencil');
+  divSix.appendChild(iElement);
+
   var paragraphElement = document.createElement('p');
   paragraphElement.setAttribute('class', 'journal-notes');
   paragraphElement.textContent = entry.notes;
   divThree.appendChild(paragraphElement);
+
   return liElement;
 }
 

@@ -11,6 +11,14 @@
   flex-basis: 50%;
 }
 
+/* .column-three-fourth {
+  flex-basis: 75%;
+}
+
+.column-one-fourth {
+  flex-basis: 25%;
+} */
+
 .width-100 {
   width: 100%;
 }
@@ -59,6 +67,15 @@
 
 h3 {
   font-size: 16px;
+}
+
+.fa-pencil {
+  font-size: 24px;
+  color: #7d609b;
+}
+
+.fa-pencil:hover {
+  color: #4b2373;
 }
 
 input,
