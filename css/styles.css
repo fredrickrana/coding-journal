@@ -2,19 +2,36 @@
   background-color: #4b2373;
 }
 
+.flex-50 {
+  flex-basis: 50%;
+}
+
 .color-white {
   color: #fff;
 }
 
+.navbar-padding {
+  padding-right: 25px;
+}
+
+.navbar-margin {
+  margin: 20px 0;
+}
+
 .title-header {
   font-weight: 300;
-  font-size: 20px;
+  font-size: 22px;
+}
+
+.entries-header {
+  font-weight: 200;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .main-background {
   background-color: #ededed;
   padding: 10px 0 180px;
-  height: auto;
 }
 
 .title-main {
@@ -59,8 +76,24 @@ textarea:focus {
   width: 100%;
 }
 
+.align-center {
+  align-items: center;
+}
+
 .align-right {
   text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fontweight-100 {
+  font-weight: 100;
+}
+
+.fontsize-18 {
+  font-size: 18px;
 }
 
 .button-save {
@@ -69,7 +102,25 @@ textarea:focus {
   font-size: 16px;
   font-weight: 200;
   padding: 10px 20px;
-  margin: 35px 0;
+  margin: 30px 0;
   border-radius: 5px;
   border: none;
+}
+
+.button-new {
+  background-color: #4b2373;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+}
+
+.style-none {
+  list-style: none;
+}
+
+.padding-none {
+  padding-left: 0;
 }
