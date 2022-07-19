@@ -2,24 +2,53 @@
   background-color: #4b2373;
 }
 
+.main-background {
+  background-color: #ededed;
+  padding: 10px 0 180px;
+}
+
+.flex-50 {
+  flex-basis: 50%;
+}
+
+.width-100 {
+  width: 100%;
+}
+
 .color-white {
   color: #fff;
 }
 
-.title-header {
-  font-weight: 300;
-  font-size: 20px;
+.navbar-padding {
+  padding-right: 25px;
 }
 
-.main-background {
-  background-color: #ededed;
-  padding: 10px 0 180px;
-  height: auto;
+.padding-none {
+  padding-left: 0;
+}
+
+.navbar-margin {
+  margin: 20px 0;
+}
+
+.marginbottom-50 {
+  margin-bottom: 50px;
+}
+
+.title-header {
+  font-weight: 300;
+  font-size: 22px;
 }
 
 .title-main {
   font-weight: 700;
   font-size: 30px;
+}
+
+.entries-header {
+  font-weight: 200;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .image-size {
@@ -55,12 +84,24 @@ textarea:focus {
   outline: 2px solid #8d6fae;
 }
 
-.width-100 {
-  width: 100%;
+.align-center {
+  align-items: center;
 }
 
 .align-right {
   text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fontweight-100 {
+  font-weight: 100;
+}
+
+.fontsize-18 {
+  font-size: 18px;
 }
 
 .button-save {
@@ -69,7 +110,36 @@ textarea:focus {
   font-size: 16px;
   font-weight: 200;
   padding: 10px 20px;
-  margin: 35px 0;
+  margin: 30px 0;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
+}
+
+.button-new {
+  background-color: #4b2373;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.style-none {
+  list-style: none;
+}
+
+.mouse-pointer {
+  cursor: pointer;
+}
+
+.journal-title {
+  font-size: 22px;
+}
+
+.journal-notes {
+  font-size: 16px;
+  font-weight: 400;
 }
