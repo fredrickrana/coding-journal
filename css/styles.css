@@ -96,6 +96,10 @@ textarea:focus {
   font-size: 18px;
 }
 
+.marginbottom-50 {
+  margin-bottom: 50px;
+}
+
 .button-save {
   background-color: #4b2373;
   color: #fff;
