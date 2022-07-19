@@ -2,8 +2,17 @@
   background-color: #4b2373;
 }
 
+.main-background {
+  background-color: #ededed;
+  padding: 10px 0 180px;
+}
+
 .flex-50 {
   flex-basis: 50%;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 .color-white {
@@ -14,8 +23,16 @@
   padding-right: 25px;
 }
 
+.padding-none {
+  padding-left: 0;
+}
+
 .navbar-margin {
   margin: 20px 0;
+}
+
+.marginbottom-50 {
+  margin-bottom: 50px;
 }
 
 .title-header {
@@ -23,20 +40,15 @@
   font-size: 22px;
 }
 
+.title-main {
+  font-weight: 700;
+  font-size: 30px;
+}
+
 .entries-header {
   font-weight: 200;
   font-size: 18px;
   text-decoration: none;
-}
-
-.main-background {
-  background-color: #ededed;
-  padding: 10px 0 180px;
-}
-
-.title-main {
-  font-weight: 700;
-  font-size: 30px;
 }
 
 .image-size {
@@ -72,10 +84,6 @@ textarea:focus {
   outline: 2px solid #8d6fae;
 }
 
-.width-100 {
-  width: 100%;
-}
-
 .align-center {
   align-items: center;
 }
@@ -96,10 +104,6 @@ textarea:focus {
   font-size: 18px;
 }
 
-.marginbottom-50 {
-  margin-bottom: 50px;
-}
-
 .button-save {
   background-color: #4b2373;
   color: #fff;
@@ -109,6 +113,7 @@ textarea:focus {
   margin: 30px 0;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 
 .button-new {
@@ -119,12 +124,22 @@ textarea:focus {
   padding: 8px 15px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 
 .style-none {
   list-style: none;
 }
 
-.padding-none {
-  padding-left: 0;
+.mouse-pointer {
+  cursor: pointer;
+}
+
+.journal-title {
+  font-size: 22px;
+}
+
+.journal-notes {
+  font-size: 16px;
+  font-weight: 400;
 }
