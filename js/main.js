@@ -141,6 +141,7 @@ $newButton.addEventListener('click', goToForm);
 
 function stayOnPage(event) {
   viewSwap();
+  $modal.className = 'hidden';
 }
 window.addEventListener('load', stayOnPage);
 
