@@ -137,14 +137,19 @@ window.addEventListener('load', stayOnPage);
 function editAnEntry(event) {
   data.view = 'entry-form';
   viewSwap();
-  for (var i = 0; i < data.entries; i++) {
-    if (event.target.closest('li').getAttribute('data-entry-id').matches(data.entries[i].entryId)) {
+  var closestLi = event.target.closest('li');
+  var attributeOfLi = closestLi.getAttribute('data-entry-id');
+  var entryIdNumber = parseInt(attributeOfLi);
+  for (var i = 0; i < data.entries.length; i++) {
+    if (entryIdNumber === data.entries[i].entryId) {
       data.editing = data.entries[i];
     }
   }
 }
 
 // __________________________________________________
+
+// if (event.target.closest('li').getAttribute('data-entry-id').matches(data.entries[i].entryId)) {
 
 // parent element of all rendered entries is the li element
 
