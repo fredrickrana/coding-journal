@@ -7,8 +7,6 @@ var $entriesNav = document.querySelector('.entries-header');
 var $newButton = document.querySelector('.button-new');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
-// var $pencil = document.querySelectorAll('.fa-pencil');
-// var $li = document.querySelectorAll('li');
 
 function updateImageSource(event) {
   $image.setAttribute('src', $photourl.value);
@@ -145,33 +143,9 @@ function editAnEntry(event) {
       data.editing = data.entries[i];
     }
   }
+  $form.title.value = data.editing.title;
+  $form.photourl.value = data.editing.photourl;
+  $form.notes.value = data.editing.notes;
+  updateImageSource();
+  invalidImageURL();
 }
-
-// __________________________________________________
-
-// if (event.target.closest('li').getAttribute('data-entry-id').matches(data.entries[i].entryId)) {
-
-// parent element of all rendered entries is the li element
-
-// click on the pencil (which is the event.target)
-// go to the pencil's closest li element (ancestor)
-// get the attribute (data-entry-id) value of that li element
-
-// have the value match the entryId of an entry in the data model
-
-// ________________
-
-// look through each event.target
-// change editing to not null (?)
-// matches property
-
-// find the matching entry object in the data model and assign it to the data model's editing property if an edit icon was clicked
-// parent (ancestor) div of pencil is the li element
-// li element has a data-entry-id
-// use closest method ('li')
-
-// if the attribute of the event.target (which is the pencil) of the li element (which is a data-entry-id)... is equal / matches ... entryId in the multiple data.entries
-
-// change editing property
-// then pull the values of that editing property
-// append it to the form...
