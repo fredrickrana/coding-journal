@@ -30,13 +30,13 @@ $image.addEventListener('error', invalidImageURL);
 function submitEntries(event) {
   event.preventDefault();
   if (data.editing === null) {
-    data.nextEntryId = data.entries.length + 1;
     var entryValues = {
       title: $form.title.value,
       photourl: $form.photourl.value,
       notes: $form.notes.value,
       entryId: data.nextEntryId
     };
+    data.nextEntryId++;
     data.entries.unshift(entryValues);
     $image.setAttribute('src', 'images/placeholder-image-square.jpg');
     loadNewEntry(entryValues);
@@ -182,6 +182,7 @@ function confirmDelete(event) {
       data.view = 'entries';
       viewSwap();
       deleteInDataEntries();
+      data.editing = null;
     }
   }
 }
