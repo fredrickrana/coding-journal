@@ -61,6 +61,15 @@ h3 {
   font-size: 16px;
 }
 
+.fa-pencil {
+  font-size: 24px;
+  color: #7d609b;
+}
+
+.fa-pencil:hover {
+  color: #4b2373;
+}
+
 input,
 textarea {
   width: 100%;
