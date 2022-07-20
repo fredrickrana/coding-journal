@@ -17,22 +17,36 @@ function updateImageSource(event) {
 $photourl.addEventListener('input', updateImageSource);
 
 function invalidImageURL(event) {
-  event.target.src = 'images/placeholder-image-square.jpg';
+  if (data.view === 'entry-form') {
+    event.target.src = 'images/placeholder-image-square.jpg';
+  }
 }
 $image.addEventListener('error', invalidImageURL);
 
 function submitEntries(event) {
   event.preventDefault();
-  var entryValues = {
-    title: $form.title.value,
-    photourl: $form.photourl.value,
-    notes: $form.notes.value,
-    entryId: data.nextEntryId
-  };
-  data.nextEntryId++;
-  data.entries.unshift(entryValues);
-  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
-  loadNewEntry(entryValues);
+  if (data.editing === null) {
+    var entryValues = {
+      title: $form.title.value,
+      photourl: $form.photourl.value,
+      notes: $form.notes.value,
+      entryId: data.nextEntryId
+    };
+    data.nextEntryId++;
+    data.entries.unshift(entryValues);
+    $image.setAttribute('src', 'images/placeholder-image-square.jpg');
+    loadNewEntry(entryValues);
+  } else {
+    data.editing.title = $form.title.value;
+    data.editing.photourl = $form.photourl.value;
+    data.editing.notes = $form.notes.value;
+    var $li = document.querySelectorAll('.journal-entry');
+    for (var i = 0; i < $li.length; i++) {
+      if (data.editing.entryId === parseInt($li[i].getAttribute('data-entry-id'))) {
+        $li[i].replaceWith(newEntry(data.editing));
+      }
+    }
+  }
   $form.reset();
   data.view = 'entries';
   viewSwap();
@@ -57,51 +71,41 @@ function loadNewEntry(entry) {
 function newEntry(entry) {
   var liElement = document.createElement('li');
   liElement.setAttribute('data-entry-id', entry.entryId);
+  liElement.setAttribute('class', 'journal-entry');
   var divOne = document.createElement('div');
   divOne.setAttribute('class', 'row marginbottom-50');
   liElement.appendChild(divOne);
-
   var divTwo = document.createElement('div');
   divTwo.setAttribute('class', 'column-half');
   divOne.appendChild(divTwo);
-
   var imgElement = document.createElement('img');
   imgElement.setAttribute('src', entry.photourl);
   imgElement.setAttribute('class', 'image-size');
   divTwo.appendChild(imgElement);
-
   var divThree = document.createElement('div');
   divThree.setAttribute('class', 'column-half');
   divOne.appendChild(divThree);
-
   var divFour = document.createElement('div');
   divFour.setAttribute('class', 'row align-center');
   divThree.appendChild(divFour);
-
   var divFive = document.createElement('div');
   divFive.setAttribute('class', 'flex-50');
   divFour.appendChild(divFive);
-
   var headerTwo = document.createElement('h2');
   headerTwo.setAttribute('class', 'journal-title');
   headerTwo.textContent = entry.title;
   divFive.appendChild(headerTwo);
-
   var divSix = document.createElement('div');
   divSix.setAttribute('class', 'flex-50 align-right');
   divFour.appendChild(divSix);
-
   var iElement = document.createElement('i');
   iElement.setAttribute('class', 'fa-solid fa-pencil');
   divSix.appendChild(iElement);
-
   var paragraphElement = document.createElement('p');
   paragraphElement.setAttribute('class', 'journal-notes');
   paragraphElement.textContent = entry.notes;
   divThree.appendChild(paragraphElement);
-
   iElement.addEventListener('click', editAnEntry);
-
   return liElement;
 }
 
@@ -124,6 +128,9 @@ $entriesNav.addEventListener('click', goToEntries);
 function goToForm(event) {
   data.view = 'entry-form';
   viewSwap();
+  $form.reset();
+  updateImageSource();
+  data.editing = null;
 }
 $newButton.addEventListener('click', goToForm);
 
@@ -147,5 +154,4 @@ function editAnEntry(event) {
   $form.photourl.value = data.editing.photourl;
   $form.notes.value = data.editing.notes;
   updateImageSource();
-  invalidImageURL();
 }
