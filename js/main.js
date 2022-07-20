@@ -8,6 +8,9 @@ var $newButton = document.querySelector('.button-new');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
 var $deleteButton = document.querySelector('.button-delete');
+var $modal = document.querySelector('.modal-layout');
+var $cancelButton = document.querySelector('.button-cancel');
+var $confirmButton = document.querySelector('.button-confirm');
 
 function updateImageSource(event) {
   $image.setAttribute('src', $photourl.value);
@@ -27,13 +30,13 @@ $image.addEventListener('error', invalidImageURL);
 function submitEntries(event) {
   event.preventDefault();
   if (data.editing === null) {
+    data.nextEntryId = data.entries.length + 1;
     var entryValues = {
       title: $form.title.value,
       photourl: $form.photourl.value,
       notes: $form.notes.value,
       entryId: data.nextEntryId
     };
-    data.nextEntryId++;
     data.entries.unshift(entryValues);
     $image.setAttribute('src', 'images/placeholder-image-square.jpg');
     loadNewEntry(entryValues);
@@ -157,4 +160,36 @@ function editAnEntry(event) {
   $form.notes.value = data.editing.notes;
   updateImageSource();
   $deleteButton.className = 'button-delete';
+}
+
+function deleteModal(event) {
+  $modal.className = 'modal-layout';
+}
+$deleteButton.addEventListener('click', deleteModal);
+
+function cancelDelete(event) {
+  $modal.className = 'hidden';
+}
+$cancelButton.addEventListener('click', cancelDelete);
+
+function confirmDelete(event) {
+  $modal.className = 'hidden';
+  var $li = document.querySelectorAll('.journal-entry');
+  for (var i = 0; i < $li.length; i++) {
+    if (data.editing.entryId === parseInt($li[i].getAttribute('data-entry-id'))) {
+      $li[i].remove();
+      data.view = 'entries';
+      viewSwap();
+      deleteInDataEntries();
+    }
+  }
+}
+$confirmButton.addEventListener('click', confirmDelete);
+
+function deleteInDataEntries() {
+  for (var x = 0; x < data.entries.length; x++) {
+    if (data.editing.entryId === data.entries[x].entryId) {
+      data.entries.splice(x, 1);
+    }
+  }
 }
