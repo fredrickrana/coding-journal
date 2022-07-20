@@ -18,6 +18,12 @@
   width: 100%;
 }
 
+.modal-container {
+  max-width: 95%;
+  margin: auto;
+  position: fixed;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -30,5 +36,9 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .modal-container {
+    max-width: 500px;
   }
 }

@@ -7,6 +7,7 @@ var $entriesNav = document.querySelector('.entries-header');
 var $newButton = document.querySelector('.button-new');
 var $entryForm = document.querySelector('.entry-form');
 var $entries = document.querySelector('.entries');
+var $deleteButton = document.querySelector('.button-delete');
 
 function updateImageSource(event) {
   $image.setAttribute('src', $photourl.value);
@@ -131,6 +132,7 @@ function goToForm(event) {
   $form.reset();
   updateImageSource();
   data.editing = null;
+  $deleteButton.className = 'hidden';
 }
 $newButton.addEventListener('click', goToForm);
 
@@ -154,4 +156,5 @@ function editAnEntry(event) {
   $form.photourl.value = data.editing.photourl;
   $form.notes.value = data.editing.notes;
   updateImageSource();
+  $deleteButton.className = 'button-delete';
 }
