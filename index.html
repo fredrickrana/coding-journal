@@ -18,10 +18,15 @@
 <body>
   <header class="header-background">
     <div class="container">
-      <div class="row">
-        <div class="column-full navbar-margin">
+      <div class="row align-center">
+        <div class="flex-20 navbar-margin">
           <a class="color-white navbar-padding title-header">Code Journal</a>
+        </div>
+        <div class="flex-20">
           <a href="#" class="color-white navbar-padding entries-header mouse-pointer">Entries</a>
+        </div>
+        <div class="flex-55">
+          <input type="search" id="searchbar" class="searchbar" placeholder="Search Entries...">
         </div>
       </div>
     </div>
@@ -34,7 +39,7 @@
             <h1 class="title-main">New Entry</h1>
           </div>
         </div>
-        <form>
+        <form class="entry-form">
           <div class="row">
             <div class="column-half">
               <img src="images/placeholder-image-square.jpg" alt="placeholder-image-square" class="image-size">
@@ -95,7 +100,7 @@
             <p class="fontweight-100 fontsize-18">No entries have been recorded.</p>
           </div>
         </div>
-        <ul class="padding-none style-none">
+        <ul class="padding-none style-none list-of-entries">
           <!-- <li data-entry-id="1">
             <div class="row marginbottom-50">
               <div class="column-half">

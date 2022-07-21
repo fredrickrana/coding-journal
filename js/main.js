@@ -1,7 +1,7 @@
-var $image = document.querySelector('img');
+var $image = document.querySelector('.image-size');
 var $photourl = document.querySelector('input[name="photourl"]');
 var $form = document.querySelector('form');
-var $ul = document.querySelector('ul');
+var $ul = document.querySelector('.list-of-entries');
 var $noEntries = document.querySelector('.no-entries');
 var $entriesNav = document.querySelector('.entries-header');
 var $newButton = document.querySelector('.button-new');
@@ -11,6 +11,7 @@ var $deleteButton = document.querySelector('.button-delete');
 var $modal = document.querySelector('.modal-layout');
 var $cancelButton = document.querySelector('.button-cancel');
 var $confirmButton = document.querySelector('.button-confirm');
+var $searchBar = document.querySelector('.searchbar');
 
 function updateImageSource(event) {
   $image.setAttribute('src', $photourl.value);
@@ -195,3 +196,91 @@ function deleteInDataEntries() {
     }
   }
 }
+
+function searchForEntry(event) {
+  var $searchInput = document.querySelector('.searchbar').value;
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].title.toLowerCase().includes($searchInput.toLowerCase())) {
+      var $li = document.querySelectorAll('.journal-entry');
+      for (var x = 0; x < $li.length; x++) {
+        if (data.entries[i].entryId === parseInt($li[x].getAttribute('data-entry-id'))) {
+          $li[x].className = 'entries';
+        } else {
+          $li[x].className = 'hidden';
+        }
+      }
+    }
+  }
+}
+$searchBar.addEventListener('keyup', searchForEntry);
+
+function unclickSearchBar(event) {
+  var $searchInput = document.querySelector('.searchbar').value;
+  if ($searchInput === '') {
+    window.location.reload();
+  }
+}
+$searchBar.addEventListener('blur', unclickSearchBar);
+
+// function searchBar(event) {
+//  if ($searchBar.value === '') {
+//    $entries.className = 'hidden';
+//   } else {
+//     $entries.className = 'entries';
+// }
+// $searchBar.addEventListener('input', searchBar);
+
+// function searchForEntry(event) {
+//   var $searchInput = document.querySelector('.searchbar').value;
+//   // var $li = document.querySelectorAll('.journal-entry');
+//   // var $closestHTwo = $li.closest('h2');
+//   for (var i = 0; i < data.entries.length; i++) {
+//     if (data.entries[i].title.toLowerCase().includes($searchInput.toLowerCase())) {
+//       var searchedEntries = data.entries[i];
+//       if (searchedEntries.entryId === parseInt($li[i].getAttribute('data-entry-id'))) {
+//         $li[i].className = 'hidden';
+//       }
+//       // take all the searched entries, and have it match with the correct $li element
+//       // change the ones that dont match to hidden
+
+//       // $li[i].className = 'hidden';
+//       // console.log(data.entries[i].title.toLowerCase());
+//       // console.log($searchInput.toLowerCase());
+//       // $entries.className = 'entries';
+//       // if (data.entries[i].entryId === parseInt($li[i].getAttribute('data-entry-id'))) {
+//         // $li[i].className = 'hidden';
+//     }
+//   }
+// }
+// $searchBar.addEventListener('keyup', searchForEntry);
+
+// function clickSearchBar(event) {
+//   if ($searchBar.value === '') {
+//     $entries.className = 'hidden';
+//   } else {
+//     $entries.className = 'entries';
+//   }
+// }
+// $searchBar.addEventListener('focus', clickSearchBar);
+
+// function unclickSearchBar(event) {
+//   $entries.className = 'entries';
+// }
+// $searchBar.addEventListener('blur', unclickSearchBar);
+
+// loop through all the h2 elements
+// take the h2 element and go to the closest li element
+// change the class of that li element if the h2 element does not include the search input character
+
+// _________ try this after lunch ^^^
+
+// if the value that is inputted in the search bar is equal to
+// whatever is included in the search
+// show whatever is included
+
+// make an if statement targeting the li element
+// hide the li element
+// but show the rest of the li element
+
+// if
+// li > h2 textContent ???
