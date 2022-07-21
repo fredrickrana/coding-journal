@@ -7,6 +7,13 @@
   padding: 10px 0 180px;
 }
 
+.modal-background {
+  background-color: #fdfbfd;
+  padding: 30px 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 100vh rgb(50 50 50 / 95%);
+}
+
 .flex-50 {
   flex-basis: 50%;
 }
@@ -136,6 +143,35 @@ textarea:focus {
   cursor: pointer;
 }
 
+.button-delete {
+  color: #ea5956;
+  text-decoration: underline;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button-cancel {
+  background-color: #d1d4d6;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 30px;
+}
+
+.button-confirm {
+  background-color: #fc3e3d;
+  color: #fcf0f1;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 30px;
+}
+
 .style-none {
   list-style: none;
 }
@@ -151,4 +187,19 @@ textarea:focus {
 .journal-notes {
   font-size: 16px;
   font-weight: 400;
+}
+
+.modal-positioning {
+  top: 30%;
+  left: 0;
+  right: 0;
+}
+
+.modal-layout {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
