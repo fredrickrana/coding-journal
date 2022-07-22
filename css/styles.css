@@ -4,7 +4,7 @@
 
 .main-background {
   background-color: #ededed;
-  padding: 10px 0 180px;
+  padding: 10px 0 43vh;
 }
 
 .modal-background {
@@ -16,6 +16,14 @@
 
 .flex-50 {
   flex-basis: 50%;
+}
+
+.flex-55 {
+  flex-basis: 55%;
+}
+
+.flex-20 {
+  flex-basis: 20%;
 }
 
 .width-100 {
@@ -38,6 +46,10 @@
   margin: 20px 0;
 }
 
+.marginleft-37 {
+  margin-left: -37px;
+}
+
 .marginbottom-50 {
   margin-bottom: 50px;
 }
@@ -56,6 +68,10 @@
   font-weight: 200;
   font-size: 18px;
   text-decoration: none;
+}
+
+.searchbar {
+  margin-bottom: 5px;
 }
 
 .image-size {
